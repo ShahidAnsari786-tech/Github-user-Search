@@ -14,7 +14,7 @@ body {
 .container {
 	max-width: 800px;
 	margin: 20px auto;
-	background-color: #efecf5;
+	background-color: #ffffff;
 	padding: 10px;
 	border-radius: 8px;
 	box-shadow: 0 0 10px rgba(217, 20, 20, 0.1);
@@ -124,8 +124,8 @@ li {
 
 .repo-topic {
 	padding: 4px;
-	border: 1px solid white;
-	background-color: #418ac9;
+	border: 1px solid rgb(250, 246, 246);
+	background-color: #03335d;
 	color: #fff;
 	border-radius: 5px;
 }
@@ -151,10 +151,10 @@ ul#pages li {
 	cursor: pointer;
 	padding: 5px 8px;
 	font-size: 14px;
-	border: 1px solid #ddd;
+	border: 1px solid #63f86d;
 	border-radius: 4px;
-	background-color: #fff;
-	color: #333;
+	background-color: #15131b;
+	color: #fffdfd;
 }
 
 ul#pages li:hover {
@@ -178,18 +178,76 @@ select#perPage {
 
 /* loader */
 #loader {
-	border: 6px solid #f3f3f3;
-	border-top: 6px solid #3498db;
-	border-radius: 50%;
-	width: 40px;
-	height: 40px;
-	animation: spin 1s linear infinite;
+	align-items: center;
+	width: 80px;
+    height: 80px;
+	animation: spin 2s linear infinite;
 	position: fixed;
 	top: 10%;
 	left: 50%;
 	margin-top: -20px;
 	margin-left: -20px;
-	z-index: 1000;
+	display:flex;
+}
+.ring{
+    width: 200px;
+    height: 200px;
+    border: 0px solid #011015;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.ring:nth-child(1){
+    border-bottom-width: 8px;
+    border-color: rgb(255, 0, 255);
+    animation: rotate1 2s linear infinite;
+}
+
+.ring:nth-child(2){
+    border-right-width: 8px;
+    border-color: rgb(0, 247, 255);
+    animation: rotate2 2s linear infinite;
+}
+
+.ring:nth-child(3){
+    border-top-width: 8px;
+    border-color: rgb(0, 255, 13);
+    animation: rotate3 2s linear infinite;
+}
+
+.load{
+    color: rgb(10, 1, 28);
+	top: 10%;
+	left: 50%;
+	margin-top: -20px;
+	margin-left: -20px;
+}
+
+@keyframes rotate1{
+    0%{
+        transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+    }
+    100%{
+        transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+    }
+}
+
+@keyframes rotate2{
+    0%{
+        transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+    }
+    100%{
+        transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+    }
+}
+
+@keyframes rotate3{
+    0%{
+        transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+    }
+    100%{
+        transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+    }
 }
 
 #back {
@@ -197,7 +255,7 @@ select#perPage {
 	border: none;
 	outline: none;
 	padding:1rem;
-	margin-left: 223px;
+	margin-left: 2px;
 	font-size: 1rem;
     box-shadow: 0 0 .5rem rgba(149, 2, 2, 0.189);
     border-radius: 0 .6rem .5rem 0;
@@ -212,12 +270,4 @@ select#perPage {
 
 #back:hover {
 	background-color: #1cd907;
-}
-@keyframes spin {
-	0% {
-		transform: rotate(0deg);
-	}
-	100% {
-		transform: rotate(360deg);
-	}
 }
