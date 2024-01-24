@@ -17,7 +17,7 @@ const fetchUserDetails = async (username) => {
 		return window.history.back();
 	}
 	curUser = user;
-	 console.log(user);
+	// console.log(user);
 	displayBasicUserDetails(user);
 	fetchUserRepos(username);
 	displayPagination(user.public_repos, reposPerPage);
@@ -31,7 +31,7 @@ const fetchUserRepos = async (username) => {
 		alert("API rate limit exceeded.");
 		return window.history.back();
 	}
-	// console.log(repos);
+//	console.log(repos);
 	displayRepos(repos);
 	hideLoader();
 };
@@ -93,8 +93,9 @@ const displayRepos = (repos) => {
 			repo.name ? repo.name : "<i>Not Available</i>"
 		}</a></h3>
             <p>${
-					repo.description ? repo.description : "<i>No description</i>"
+					repo.description ? repo.description : "<i>No description Available</i>"
 						}</p>
+						
             <div class="repo-details">
                 ${
 						repo.topics.length !== 0
@@ -106,6 +107,9 @@ const displayRepos = (repos) => {
 						: ""
 						}
             </div>
+			<p>${
+				repo.language ? repo.language : "<i>No Language</i>"
+					}</p>
         </div>`;
 	});
 	reposContainer.innerHTML = reposHTML;
@@ -125,7 +129,7 @@ const displayPagination = (totalRepos, perPage = 10) => {
 		li.textContent = i;
 		li.onclick = () => changePage(i);
 		if (i === currentPage) {
-			li.style.backgroundColor = "#418ac9";
+			li.style.backgroundColor = "navy";
 			li.style.color = "white";
 		}
 		paginationList.appendChild(li);
